@@ -22,4 +22,5 @@
 
 ## API 
 
-[name][link]
+[aviationstack][https://aviationstack.com/]
+[Free Hotel API] [https://api.makcorps.com/free]
