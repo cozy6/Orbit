@@ -1,0 +1,122 @@
+.main{
+    background: url("/images/background-image.jpg"), 0% / cover no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px 80px 40px 80px;
+}
+
+.heading{
+    font-family: var(--heading-font);
+    font-size: var(--desktop-heading3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.surveyContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--white);
+    border-radius: 30px;
+    padding: 11px;
+    width: 100%;
+}
+
+.content{
+    width: 50%;
+}
+
+.content{
+    padding: 6em;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 40px;
+
+}
+
+.progressBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+}
+
+.currentStep{
+    height: 4px;
+    width: 66.67px;
+    background-color: var(--red);
+}
+
+.step{
+    height: 4px;
+    width: 66.67px;
+    background-color: var(--gray);
+}
+.stage{
+    font-family: var(--body-font);
+    font-size: var(--desktop-heading3);
+    color: var(--dark-blue);
+}
+
+.question{
+    font-family: var(--heading-font);
+    font-size: var(--desktop-heading2);
+    color: var(--dark-blue);
+    margin-bottom: 64px;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.form{
+    color: var(--black);
+}
+
+.select{
+    font-family: var(--body-font);
+    font-size: var(--desktop-body-20pt);
+    color: var(--dark-blue);
+    margin-bottom: 20px;
+}
+
+.dropdown{
+    width: 450px;
+}
+.traveller{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--body-font);
+    font-size: var(--desktop-body-20pt);
+    color: var(--dark-blue);
+    margin-bottom: 20px;
+    width: 450px;
+    padding: 17px;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 17px;
+}
+
+.counter{
+    font-size: var(--desktop-body-20pt);
+    color: var(--gray);
+}
+
+.addMinus{
+    color: var(--blue);
+}
+
