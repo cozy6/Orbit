@@ -120,3 +120,25 @@
     color: var(--blue);
 }
 
+.graphic{
+    position: relative;
+}
+.button{
+    position: absolute;
+    top: 700px;
+    left: 140px;
+    font-family: var(--body-font);
+    font-size: var(--desktop-body-16pt);
+    background-color: var(--blue);
+    padding: 24px;
+    height: 72px;
+    width: 357px;
+    border-radius: 62px;
+    margin-top: 42px;
+    transition: 1s;
+}
+
+.button:hover{
+    background-color: var(--red);
+    transform: translateY(-3px);
+}

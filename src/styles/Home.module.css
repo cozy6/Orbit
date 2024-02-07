@@ -39,6 +39,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 .button{
     font-family: var(--body-font);
     font-size: var(--desktop-body-16pt);

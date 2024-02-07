@@ -2,9 +2,10 @@ import Image  from 'next/image'
 import styles from '@/styles/onboarding.module.css'
 import { useState } from 'react';
 
+
 export default function Onboarding() {
 
-    const [counterAmount, setCounterAmount] = useState(1);
+    const [amount, setAmount] = useState(1);
 
   return (
     <main className={styles.main}>
@@ -54,13 +55,13 @@ export default function Onboarding() {
                 </div>
                 <label className={styles.select}>Number of Travellers</label>
                 <div className={styles.traveller}>
-                    <p className={styles.counter}>{counterAmount}</p>
+                    <p className={styles.counter}>{amount}</p>
                     <div className={styles.buttons}>
-                        <button className={styles.addMinus} onClick={() => setCounterAmount(Math.max(counterAmount - 1, 1))}> 
+                        <button className={styles.addMinus}onClick={() => setAmount(Math.max(amount - 1, 1))}> 
                             -
                         </button>
                         <p>|</p>
-                        <button className={styles.addMinus} onClick={() => setCounterAmount(counterAmount + 1)}>
+                        <button className={styles.addMinus} onClick={() => setAmount(amount + 1)}>
                             +
                         </button>
                     </div>
@@ -72,7 +73,8 @@ export default function Onboarding() {
                     height={854}
                     width={642}
                     alt="location graphic"
-                    />
+                />
+                <button className={styles.button}>Submit</button>
             </div>
         </div>
       </div>
