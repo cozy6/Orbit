@@ -81,6 +81,13 @@
     margin-bottom: 64px;
 }
 
+.question_o2{
+    font-family: var(--heading-font);
+    font-size: var(--desktop-heading2);
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
 .dropdown{
     position: relative;
 }
