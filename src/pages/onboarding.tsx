@@ -76,7 +76,7 @@ export default function Onboarding() {
                     alt="location graphic"
                 />
                 <Link href="/onboarding_2">
-                    <button className={styles.button}>Submit</button>
+                    <button className={styles.button}>Next</button>
                 </Link>
             </div>
         </div>

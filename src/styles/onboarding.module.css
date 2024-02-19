@@ -11,7 +11,7 @@
     background: url("/images/background-image.jpg") 0% / cover no-repeat;
     background-size: cover;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 20px 80px 40px 80px;
 }
 

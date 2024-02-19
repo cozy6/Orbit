@@ -1,5 +1,5 @@
 import Image  from 'next/image'
-import styles from '@/styles/onboarding.module.css'
+import styles from '@/styles/results.module.css'
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -62,7 +62,7 @@ export default function Onboarding() {
                     alt="location graphic"
                 />
                 <Link href="/onboarding_4">
-                    <button className={styles.button}>Submit</button>
+                    <button className={styles.button}>Next</button>
                 </Link>
             </div>
         </div>
