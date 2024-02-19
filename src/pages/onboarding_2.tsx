@@ -56,7 +56,7 @@ export default function Onboarding() {
           <div className={styles.graphic}>
             <Image src={"/images/graphics/onboarding-2-graphic.svg"} height={854} width={642} alt="location graphic" />
             <Link href="/onboarding_3">
-              <button className={styles.button}>Submit</button>
+              <button className={styles.button}>Next</button>
             </Link>
           </div>
         </div>
