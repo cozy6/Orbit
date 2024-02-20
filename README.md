@@ -34,5 +34,5 @@
 
 ## API 
 
-[aviationstack][https://aviationstack.com/]
-[Free Hotel API] [https://api.makcorps.com/free]
+[OpenAI][https://openai.com/API]
+[OpenWeatherAPI] [https://openweathermap.org/api]
