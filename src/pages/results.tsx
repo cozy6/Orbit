@@ -84,7 +84,7 @@ export default function Results() {
                   </p>
                 </Link>
                 <div className={styles.buttonContainer}>
-                  <Link href="/" className={styles.buttonPrimary}>
+                  <Link href="/dashboard" className={styles.buttonPrimary}>
                     Save to Dashboard
                   </Link>
                   <Link href="/" className={styles.buttonSecondary}>
