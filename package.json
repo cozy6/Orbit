@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.6.7",
+    "cypress": "^13.6.4",
     "next": "14.0.4",
     "react": "^18",
     "react-calendar": "^4.8.0",
