@@ -12,7 +12,7 @@
   --heading-font: "Gilroy";
   /* Desktop */
 
-  --desktop-bold-header:60px;
+  --desktop-bold-header: 60px;
 
   --desktop-body-16pt: 16px;
   --desktop-body-18pt: 18px;
@@ -24,7 +24,7 @@
 
   /* Tablet */
 
-  --tablet-bold-header:32px;
+  --tablet-bold-header: 32px;
 
   --tablet-body-15pt: 15px;
   --tablet-body-17pt: 17px;
@@ -36,7 +36,7 @@
 
   /* Mobile */
 
-  --mobile-bold-header:24px;
+  --mobile-bold-header: 24px;
 
   --tablet-body-10pt: 10px;
   --tablet-body-12pt: 12px;
@@ -45,15 +45,15 @@
   --tablet-heading1: 20px;
   --tablet-heading2: 18px;
   --tablet-heading3: 16px;
-  
+
   /* colours */
 
-  --black: #1E1E1E;
-  --dark-blue: #27117B;
-  --blue: #413EEA;
-  --red: #FF364D;
-  --gray: #D9D9D9;
-  --white: #FAFAFA;
+  --black: #1e1e1e;
+  --dark-blue: #27117b;
+  --blue: #413eea;
+  --red: #ff364d;
+  --gray: #d9d9d9;
+  --white: #fafafa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -89,7 +89,6 @@ body {
   src: url("/fonts/ApfelGrotezk-Fett.otf");
 }
 
-
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/Gilroy-ExtraBold.otf");
@@ -100,7 +99,7 @@ body {
   src: url("/fonts/Gilroy-Light.otf");
 }
 
-select#lang{
+select#lang {
   font-family: var(--body-font);
   font-size: var(--desktop-body-20pt);
   color: var(--gray);
