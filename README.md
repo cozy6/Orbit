@@ -20,6 +20,13 @@
     npm i axios
 ```
 
+## Cypress Testing (10)
+- [.visit()] Visit a remote URL. Many tests begin with this command.
+- [.submit()] Submit a form.
+- [.wait()] Wait a number of milliseconds, or wait for an aliased resource to resolve.
+- [.invoke()] Invoke a function on the previously yielded subject.
+- [.type()] Type into a DOM element.
+
 ## API 
 
 [aviationstack][https://aviationstack.com/]
