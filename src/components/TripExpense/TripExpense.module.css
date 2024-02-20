@@ -1,0 +1,9 @@
+.mainContainer {
+  display: flex;
+  border-radius: 15px;
+  background: #f9f9f9;
+  width: 484px;
+  height: 413px;
+  /* white-shadow */
+  box-shadow: 3.114px 3.633px 7.785px 0px rgba(137, 137, 137, 0.25);
+}

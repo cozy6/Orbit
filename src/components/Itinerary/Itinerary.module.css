@@ -1,0 +1,59 @@
+/** Header Styles */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  color: var(--blue);
+}
+
+/** Scroll Group Styles */
+.scrollGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  max-height: 545px;
+  overflow-y: scroll;
+  padding-top: 18em;
+}
+
+.dayCard {
+  width: 650px;
+  height: 283px;
+  border-radius: 15px;
+  border-left: 15px solid #a2c1f4;
+  background: #fff;
+  /* white-shadow */
+  box-shadow: 3.114px 3.633px 7.785px 0px rgba(137, 137, 137, 0.25);
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: center;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: flex-start;
+  padding: 1em;
+}
+
+.tripHeader {
+  font-family: var(--heading-font);
+  color: var(--black);
+  font-size: 18px;
+  padding-top: 0.5em;
+}
+
+.tripText {
+  font-family: var(--body-font);
+  color: var(--black);
+  font-size: 14px;
+}
