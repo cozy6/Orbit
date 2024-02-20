@@ -13,11 +13,13 @@
     "next": "14.0.4",
     "react": "^18",
     "react-calendar": "^4.8.0",
+    "react-datepicker": "^6.1.0",
     "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
+    "@types/react-datepicker": "^6.0.1",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
