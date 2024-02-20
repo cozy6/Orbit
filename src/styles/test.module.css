@@ -1,0 +1,24 @@
+.date_picker_container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .react_datepicker_wrapper {
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .react_datepicker {
+    display: block;
+  }
+  
+  .main {
+    background: url("/images/background-image.jpg"), 0% / cover no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+    padding: 0px;
+    color: var(--black);
+  }
+  

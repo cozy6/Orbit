@@ -1,17 +1,39 @@
 import Image from "next/image";
 import styles from "@/styles/dashboard.module.css";
 import Link from "next/link";
-
-//components
+import { useState, useEffect } from "react";
+import { fetchWeather } from "../components/weather";
+import { WeatherStats } from "../typings.d";
 
 export default function Dashboard() {
+  const [weather, setWeather] = useState<WeatherStats | null>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetchWeather("Vancouver");
+      console.log("Weather data:", data);
+      setWeather(data);
+    }
+    fetchData();
+  }, []);
+
+  console.log("Weather state:", weather);
+
   return (
     <main className={`${styles.mainContainer} ${styles.background}`}>
       <div className={styles.heading}>
         <p>Orbit.</p>
       </div>
       <section className={styles.dataResults}>
-        <div className={styles.banner}></div>
+        <div className={styles.banner}>
+          {weather && (
+            <div>
+              <h2>{weather.name}</h2>
+              <p>Temperature: {weather.main.temp}°C</p>
+              <p>Weather: {weather.weather[0].description}</p>
+            </div>
+          )}
+        </div>
         <div className={styles.itineraryContainers}>
           <div className={styles.leftColumn}>
             <h1
