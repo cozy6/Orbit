@@ -50,6 +50,7 @@ export default function Onboarding() {
                             <option value="YYC" className={styles.options}>Calgary International Airport (YYC)</option>
                             <option value="YHZ" className={styles.options}>Halifax  International Airport (YHZ)</option>
                             <option value="YEG" className={styles.options}>Edmonton International Airport (YEG)</option>
+                            <option value="NRT" className={styles.options}>Narita International Airport (NRT)</option>
                         </select>
                     </form>
                     <input type="submit" value="Submit" />
