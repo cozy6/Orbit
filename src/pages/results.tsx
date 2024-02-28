@@ -87,7 +87,7 @@ export default function Results() {
                   <Link href="/dashboard" className={styles.buttonPrimary}>
                     Save to Dashboard
                   </Link>
-                  <Link href="/" className={styles.buttonSecondary}>
+                  <Link href="/onboarding" className={styles.buttonSecondary}>
                     Create another trip
                   </Link>
                 </div>

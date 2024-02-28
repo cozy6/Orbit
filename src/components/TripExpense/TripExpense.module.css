@@ -4,6 +4,63 @@
   background: #f9f9f9;
   width: 484px;
   height: 413px;
+  padding: 2em;
   /* white-shadow */
   box-shadow: 3.114px 3.633px 7.785px 0px rgba(137, 137, 137, 0.25);
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5em;
+}
+
+/** Trip Expense Styles */
+.tripExpenses {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3em;
+}
+.tripExpensesBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.budget {
+  display: flex;
+  color: var(--dark-blue);
+  font-family: var(--body-font);
+  justify-content: "left";
+  gap: 2em;
+  width: 15em;
+  align-items: flex-start;
+}
+/** Review Styles */
+
+.reviewScrollGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.reviewCards {
+  height: 432px;
+  width: 232px;
+}
+
+.reviewHeader {
+  color: var(--white);
+  font-family: var(--heading-font);
+  font-size: var(--desktop-body-16pt);
+}
+
+.reviewText {
+  color: var(--white);
+  font-family: var(--body-font);
+  font-size: 12px;
+}
+
+.reviewtextContainer {
+  position: relative;
+  top: 7em;
+  left: 1em;
 }
