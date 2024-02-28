@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -107,127 +108,179 @@ export default function Test() {
 
   return (
     <>
-    <main className={styles.main}>
-      <div>
-        <h1>Itinerary Builder</h1>
-        <form onSubmit={handleSubmit}>
-          {page === 1 && (
-            <>
-              <label>
-                Departure City:
-                <input
-                  type="text"
-                  value={searchDeparture}
-                  onChange={(e) => {
-                    setSearchDeparture(e.target.value);
-                    setDepartureCity(e.target.value);
-                  }}
-                  placeholder="Search or select departure city"
-                />
-                <select value={departureCity} onChange={(e) => setDepartureCity(e.target.value)}>
-                  <option value="">Select Departure City</option>
-                  {filteredDepartures.map((city, index) => (
-                    <option key={index} value={city}>
-                      {city}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label>
-                Arriving City:
-                <input
-                  type="text"
-                  value={searchArriving}
-                  onChange={(e) => {
-                    setSearchArriving(e.target.value);
-                    setArrivingCity(e.target.value);
-                  }}
-                  placeholder="Search or select arriving city"
-                />
-                <select value={arrivingCity} onChange={(e) => setArrivingCity(e.target.value)}>
-                  <option value="">Select Arriving City</option>
-                  {filteredArrivals.map((city, index) => (
-                    <option key={index} value={city}>
-                      {city}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label>
-                Number of Travelers:
-                <input
-                  type="number"
-                  value={numTravelers}
-                  onChange={(e) => setNumTravelers(parseInt(e.target.value))}
-                  required
-                />
-              </label>
-            </>
-          )}
+      <main className={styles.main}>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.page_1}>
+              {page === 1 && (
+                <>
+                  <div className={styles.wrapper}>
+                    <div className={styles.input_container}>
+                      <label>
+                        Departure City:
+                        <input
+                          type="text"
+                          value={searchDeparture}
+                          onChange={(e) => {
+                            setSearchDeparture(e.target.value);
+                            setDepartureCity(e.target.value);
+                          }}
+                          placeholder="Search or select departure city"
+                        />
+                        <select value={departureCity} onChange={(e) => setDepartureCity(e.target.value)}>
+                          <option value="">Select Departure City</option>
+                          {filteredDepartures.map((city, index) => (
+                            <option key={index} value={city}>
+                              {city}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
 
-          <div className={styles.onboarding_2}>
-            {page === 2 && (
-              <>
-                <label>
-                  Trip Duration:
-                  <div className="date_picker_container">
-                    <DatePicker
-                      selected={selectedDate}
-                      onChange={(date) => setSelectedDate(date)}
-                      dateFormat="dd/MM/yyyy"
-                      inline
-                    />
-                    <p>{selectedDate && `Selected for ${calculateTripDuration()} days`}</p>
+                      <label>
+                        Arriving City:
+                        <input
+                          type="text"
+                          value={searchArriving}
+                          onChange={(e) => {
+                            setSearchArriving(e.target.value);
+                            setArrivingCity(e.target.value);
+                          }}
+                          placeholder="Search or select arriving city"
+                        />
+                        <select value={arrivingCity} onChange={(e) => setArrivingCity(e.target.value)}>
+                          <option value="">Select Arriving City</option>
+                          {filteredArrivals.map((city, index) => (
+                            <option key={index} value={city}>
+                              {city}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+
+                      <label>
+                        Number of Travelers:
+                        <input
+                          type="number"
+                          value={numTravelers}
+                          onChange={(e) => setNumTravelers(parseInt(e.target.value))}
+                          required
+                        />
+                      </label>
+                    </div>
+                    <div className={styles.graphic}>
+                      <Image
+                        src={"/images/graphics/location-graphic.svg"}
+                        alt={"location-graphic"}
+                        height={854}
+                        width={642}
+                      />
+                    </div>
                   </div>
-                </label>
-              </>
-            )}
-          </div>
+                </>
+              )}
 
-          {page === 3 && (
-            <>
-              <label>
-                Trip Budget:
-                <input type="text" value={tripBudget} onChange={(e) => setTripBudget(e.target.value)} required />
-              </label>
-            </>
+
+              <div className={styles.page_2}>
+                {page === 2 && (
+                  <>
+                  <div className={styles.wrapper}>
+                    <div className={styles.input_container_date}>
+                      <label>
+                        Trip Duration:
+                        <div className="date_picker_container">
+                          <DatePicker
+                            selected={selectedDate}
+                            onChange={(date) => setSelectedDate(date)}
+                            dateFormat="dd/MM/yyyy"
+                            inline
+                          />
+                          <p>{selectedDate && `Selected for ${calculateTripDuration()} days`}</p>
+                        </div>
+                      </label>
+                    </div>
+                    <div className={styles.graphic}>
+                      <Image
+                          src={"/images/graphics/onboarding-2-graphic.svg"}
+                          alt={"location-graphic"}
+                          height={854}
+                          width={642}
+                      />                  
+                    </div>
+                  </div>
+                  </>
+                )}
+              </div>
+
+              {page === 3 && (
+                <>
+                <div className={styles.wrapper}>
+                  <label>
+                    Trip Budget:
+                    <input type="text" value={tripBudget} onChange={(e) => setTripBudget(e.target.value)} required />
+                  </label>
+                  <div className={styles.graphic}>
+                  <Image
+                          src={"/images/graphics/location-graphic-3.svg"}
+                          alt={"location-graphic"}
+                          height={854}
+                          width={642}
+                      />                       
+                  </div>
+                </div>
+                </>
+              )}
+              {page === 4 && (
+                <>
+                <div className={styles.wrapper}>
+                  <label>
+                    Describe your perfect getaway location:
+                    <textarea
+                      value={getawayDescription}
+                      onChange={(e) => setGetawayDescription(e.target.value)}
+                      required
+                    />
+                  </label>
+                  <div className={styles.graphic}>
+                  <Image
+                          src={"/images/graphics/location-graphic-4.svg"}
+                          alt={"location-graphic"}
+                          height={854}
+                          width={642}
+                      />                      
+                  </div>
+                </div>
+                </>
+              )}
+              <div className={styles.button_container}>
+                {page > 1 && (
+                  <button type="button" onClick={prevPage} className={styles.button}>
+                    Previous
+                  </button>
+                )}
+                {page < 4 ? (
+                  <button type="button" onClick={nextPage} className={styles.button}>
+                    Next
+                  </button>
+                ) : loading ? (
+                  <button type="button" disabled className={styles.button}>
+                    Generating...
+                  </button>
+                ) : (
+                  <button type="submit" className={styles.button}>
+                    Generate Itinerary
+                  </button>
+                )}
+              </div>
+            </div>
+          </form>
+          {loading && <p>Loading...</p>}
+          {generatedItinerary && (
+            <div className={styles.generated_itinerary}>
+              <h2>Generated Itinerary</h2>
+              <p>{generatedItinerary}</p>
+            </div>
           )}
-          {page === 4 && (
-            <>
-              <label>
-                Describe your perfect getaway location:
-                <textarea value={getawayDescription} onChange={(e) => setGetawayDescription(e.target.value)} required />
-              </label>
-            </>
-          )}
-          <div>
-            {page > 1 && (
-              <button type="button" onClick={prevPage}>
-                Previous
-              </button>
-            )}
-            {page < 4 ? (
-              <button type="button" onClick={nextPage}>
-                Next
-              </button>
-            ) : loading ? (
-              <button type="button" disabled>
-                Generating...
-              </button>
-            ) : (
-              <button type="submit">Generate Itinerary</button>
-            )}
-          </div>
-        </form>
-        {loading && <p>Loading...</p>}
-        {generatedItinerary && (
-          <div>
-            <h2>Generated Itinerary</h2>
-            <p>{generatedItinerary}</p>
-          </div>
-        )}
-      </div>
-    </main>
+      </main>
     </>
   );
 }

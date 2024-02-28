@@ -27,10 +27,10 @@ export default function Dashboard() {
       <section className={styles.dataResults}>
         <div className={styles.banner}>
           {weather && (
-            <div>
-              <h2>{weather.name}</h2>
-              <p>Temperature: {weather.main.temp}°C</p>
-              <p>Weather: {weather.weather[0].description}</p>
+            <div style={{ display:"flex", flexDirection:"column", marginLeft:"2em", marginTop:"1em" }}>
+              <h2 style={{ fontSize:"var(--desktop-bold-header)", fontFamily:"var(--body-font)", color:"var(--blue)" }}>{weather.name}</h2>
+              <p style={{ color:"var(--blue)" }}>Temperature: {weather.main.temp}°C</p>
+              <p style={{ color:"var(--blue)" }}>Weather: {weather.weather[0].description}</p>
             </div>
           )}
         </div>
