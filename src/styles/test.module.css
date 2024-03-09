@@ -1,85 +1,172 @@
+.main {
+  background: url("/images/background-image.jpg"), 0% / cover no-repeat;
+  background-size: cover;
+  display: inline-block;
+  width: 100vw;
+  height: 100vh;
+  padding: 0px;
+  color: var(--black);
+}
+
+.page_content {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 30px;
+  padding: 11px;
+  width: 90%;
+  height: 55rem;
+  margin-left: 6.5rem;
+  margin-top: 5rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/** Input Styles **/
+
+.left_column {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8em;
+  padding-left: 6em;
+  gap: 3em;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 3em;
+  align-content: center;
+  gap: 1em;
+  height: 100%;
+}
+
 .date_picker_container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .react_datepicker_wrapper {
-    position: absolute;
-    z-index: 1;
-  }
-  
-  .react_datepicker {
-    display: block;
-  }
-  
-  .main {
-    background: url("/images/background-image.jpg"), 0% / cover no-repeat;
-    background-size: cover;
-    display: inline-block;
-    width: 100vw;
-    height: 100vh;
-    padding: 0px;
-    color: var(--black);
-  }
-  
-  .page_1 {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    background-color: var(--white);
-    border-radius: 30px;
-    padding: 11px;
-    width: 90%;
-    height: 55rem;
-    margin-left: 6.5rem;
-    margin-top: 5rem;
-  }
+  position: relative;
+  display: inline-block;
+}
 
-  .input_container {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    height: 100%;
-  }
+.react_datepicker_wrapper {
+  position: absolute;
+  z-index: 1;
+}
 
-  .button_container {
-    display: flex;
-    margin-top: -10rem;
-  }
+.react_datepicker {
+  display: block;
+}
 
-  .input_container_date {
-    margin-top: 10em;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    height: 100%;
-    margin-left: 10rem;
-  }
+.label_text {
+  color: var(--dark-blue);
+  font-family: "Apfel Grotezk";
+  font-size: var(--desktop-body-20pt);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 
-  .generated_itinerary {
-    margin-top: -20rem;
-    max-width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 12rem;
-  }
+.placeholder_text {
+  color: rgba(30, 30, 30, 0.2);
+  font-family: "Apfel Grotezk";
+  font-size: var(--desktop-body-16pt);
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  background-color: none;
+}
 
-  .button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
+/** Button Styles **/
 
-  .wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
+.button_container {
+  display: flex;
+  margin-top: -10rem;
+  flex-direction: row;
+  padding-right: 8em;
+  padding-top: 4em;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.input_container_date {
+  margin-top: 10em;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 100%;
+  margin-left: 10rem;
+}
+
+.generated_itinerary {
+  margin-top: -20rem;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 12rem;
+}
+
+.button1 {
+  width: 103px;
+  height: 22px;
+  color: var(--blue);
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  margin-left: 5em;
+  font-size: 16px;
+}
+
+.button2 {
+  width: 357px;
+  height: 72px;
+  border-radius: 50px;
+  background-color: var(--blue);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.button2:hover {
+  background-color: var(--black);
+}
+
+/** Header Styles **/
+
+.header_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.progress_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.steps_title {
+  color: var(--dark-blue);
+  font-size: var(--desktop-heading2);
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.progress_title {
+  color: var(--dark-blue);
+  font-size: var(--desktop-heading3);
+  font-family: Apfel Grotesk;
+  font-style: normal;
+  font-weight: 400;
+}
