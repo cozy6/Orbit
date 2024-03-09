@@ -18,6 +18,7 @@
 ## Installations
 ```
     npm i axios
+    npm install react-datepicker
 ```
 
 ## Cypress Testing (10)
