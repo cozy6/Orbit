@@ -19,6 +19,9 @@
 ```
     npm i axios
     npm install react-datepicker
+    npm install -D tailwindcss
+    npm install @tailwindcss/forms
+
 ```
 
 ## Cypress Testing (10)

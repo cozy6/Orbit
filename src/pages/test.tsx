@@ -26,7 +26,14 @@ export default function Test() {
   const [arrivingCity, setArrivingCity] = useState("");
   const [numTravelers, setNumTravelers] = useState(1);
   const [tripDuration, setTripDuration] = useState<number | null>(null);
+
   const [tripBudget, setTripBudget] = useState("");
+
+  const [foodBudget, setFoodBudget] = useState("");
+  const [accommodationBudget, setAccommodationBudget] = useState("");
+  const [activitiesBudget, setActivitiesBudget] = useState("");
+  const [transportBudget, setTransportBudget] = useState("");
+
   const [getawayDescription, setGetawayDescription] = useState("");
   const [generatedItinerary, setGeneratedItinerary] = useState("");
   const [error, setError] = useState("");
@@ -61,7 +68,8 @@ export default function Test() {
 
     const userMessage: UserMessage = {
       role: "assistant",
-      content: `I'm planning a trip from ${departureCity} to ${arrivingCity} for ${numTravelers} travelers. The trip duration is ${selectedDate?.toLocaleDateString()} and the budget is ${tripBudget}. ${getawayDescription}. Can you suggest an itinerary for me?`,
+      // content: `I'm planning a trip from ${departureCity} to ${arrivingCity} for ${numTravelers} travelers. The trip duration is ${selectedDate?.toLocaleDateString()} and the budget is ${tripBudget}. ${getawayDescription}. Can you suggest an itinerary for me?`,
+      content: `I'm planning a trip from ${departureCity} to ${arrivingCity} for ${numTravelers} travelers. The trip duration is ${selectedDate?.toLocaleDateString()} and the budget is ${activitiesBudget}, ${foodBudget}, ${accommodationBudget}, ${transportBudget} . ${getawayDescription}. Can you suggest an itinerary for me?`,
     };
 
     try {
@@ -140,8 +148,8 @@ export default function Test() {
                       </div>
                       <div className={styles.input_container}>
                         <label className={styles.label_text}>
-                          Departure City:
-                          <input
+                          <div>Departure City:</div>
+                          {/* <input
                             className={styles.placeholder_text}
                             type="text"
                             value={searchDeparture}
@@ -150,7 +158,7 @@ export default function Test() {
                               setDepartureCity(e.target.value);
                             }}
                             placeholder="Search or select departure city"
-                          />
+                          /> */}
                           <select
                             className={styles.placeholder_text}
                             value={departureCity}
@@ -166,8 +174,8 @@ export default function Test() {
                         </label>
 
                         <label className={styles.label_text}>
-                          Arriving City:
-                          <input
+                          <div>Arriving City:</div>
+                          {/* <input
                             className={styles.placeholder_text}
                             type="text"
                             value={searchArriving}
@@ -176,7 +184,7 @@ export default function Test() {
                               setArrivingCity(e.target.value);
                             }}
                             placeholder="Search or select arriving city"
-                          />
+                          /> */}
                           <select
                             className={styles.placeholder_text}
                             value={arrivingCity}
@@ -192,9 +200,9 @@ export default function Test() {
                         </label>
 
                         <label className={styles.label_text}>
-                          Number of Travelers:
+                          <div>Number of Travelers:</div>
                           <input
-                            className={styles.placeholder_text}
+                            className={styles.number_text}
                             type="number"
                             value={numTravelers}
                             onChange={(e) =>
@@ -202,6 +210,20 @@ export default function Test() {
                             }
                             required
                           />
+                          <div className={styles.increment_decrement}>
+                            <button
+                              className={styles.decrement_button}
+                              type="button"
+                            >
+                              -
+                            </button>
+                            <button
+                              className={styles.increment_button}
+                              type="button"
+                            >
+                              +
+                            </button>
+                          </div>
                         </label>
                       </div>
                     </div>
@@ -241,21 +263,21 @@ export default function Test() {
                         </h1>
                       </div>
                       <div className={styles.input_container_date}>
-                        <label>
-                          Trip Duration:
-                          <div className="date_picker_container">
-                            <DatePicker
-                              selected={selectedDate}
-                              onChange={(date) => setSelectedDate(date)}
-                              dateFormat="dd/MM/yyyy"
-                              inline
-                            />
-                            <p>
-                              {selectedDate &&
-                                `Selected for ${calculateTripDuration()} days`}
-                            </p>
-                          </div>
+                        <label className={styles.label_text}>
+                          Select Dates:
                         </label>
+                        <div className="date_picker_container">
+                          <DatePicker
+                            selected={selectedDate}
+                            onChange={(date) => setSelectedDate(date)}
+                            dateFormat="dd/MM/yyyy"
+                            inline
+                          />
+                          <p>
+                            {selectedDate &&
+                              `Selected for ${calculateTripDuration()} days`}
+                          </p>
+                        </div>
                       </div>
                     </div>
                     <div className={styles.graphic}>
@@ -293,7 +315,16 @@ export default function Test() {
                           What’s your budgeting goal?{" "}
                         </h1>
                       </div>
-                      <label>
+                      <div className={styles.budget_form_container}>
+                        <label className={styles.without_budget}>
+                          <p>I don't have any budget goals</p>
+                          <input type="checkbox" id="checkBudget" />
+                        </label>
+                        <h2 className={styles.form_title}>
+                          My budgeting preferences:
+                        </h2>
+                        <div className={styles.with_budget} id="budgetForm">
+                          {/* <label className={styles.label_text}>
                         Trip Budget:
                         <input
                           type="text"
@@ -301,7 +332,55 @@ export default function Test() {
                           onChange={(e) => setTripBudget(e.target.value)}
                           required
                         />
-                      </label>
+                      </label> */}
+                          <label className={styles.budget_input}>
+                            <div>Transportation Budget:</div>
+                            <input
+                              placeholder=".00"
+                              type="text"
+                              value={transportBudget}
+                              onChange={(e) =>
+                                setTransportBudget(e.target.value)
+                              }
+                              required
+                            />
+                          </label>
+                          <label className={styles.budget_input}>
+                            <div>Food Budget:</div>
+                            <input
+                              placeholder=".00"
+                              type="text"
+                              value={foodBudget}
+                              onChange={(e) => setFoodBudget(e.target.value)}
+                              required
+                            />
+                          </label>
+                          <label className={styles.budget_input}>
+                            <div>Accommodation Budget:</div>
+                            <input
+                              placeholder=".00"
+                              type="text"
+                              value={accommodationBudget}
+                              onChange={(e) =>
+                                setAccommodationBudget(e.target.value)
+                              }
+                              required
+                            />
+                          </label>
+                          <label className={styles.budget_input}>
+                            <div>Activities Budget:</div>
+                            <input
+                              placeholder=".00"
+                              type="text"
+                              value={activitiesBudget}
+                              onChange={(e) =>
+                                setActivitiesBudget(e.target.value)
+                              }
+                              required
+                            />
+                          </label>
+                        </div>
+                      </div>
                     </div>
                     <div className={styles.graphic}>
                       <Image
@@ -337,9 +416,11 @@ export default function Test() {
                           voyage?
                         </h1>
                       </div>
-                      <label>
-                        Describe your perfect getaway location:
+                      <label className={styles.label_text}>
+                        <p>Describe your perfect getaway location:</p>
                         <textarea
+                          className={styles.getaway_placeholder_text}
+                          placeholder="E.g “Backpack adventures”, “Culture & traditions”, “Family vacation”..."
                           value={getawayDescription}
                           onChange={(e) =>
                             setGetawayDescription(e.target.value)
@@ -361,12 +442,38 @@ export default function Test() {
               )}
             </div>
 
+            <div className={styles.page_5}>
+              {page === 5 && (
+                <>
+                  <div className={styles.wrapper}>
+                    <div className={styles.header}>
+                      <Image
+                        src={"/images/banner.png"}
+                        alt={"banner-graphic"}
+                        height={220}
+                        width={1320}
+                      />
+                      <div className={styles.left_column}>
+                        {loading && <p>Loading...</p>}
+                        {generatedItinerary && (
+                          <div className={styles.generated_itinerary}>
+                            <h2>Generated Itinerary</h2>
+                            <p>{generatedItinerary}</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+
             <div className={styles.button_container}>
               {page === 1 && (
                 <Link href={"/"} className={styles.button1}>
                   <Image
                     src={"/images/back.svg"}
-                    alt={"location-graphic"}
+                    alt={"back-button"}
                     height={17}
                     width={18}
                   />
@@ -381,7 +488,7 @@ export default function Test() {
                 >
                   <Image
                     src={"/images/back.svg"}
-                    alt={"location-graphic"}
+                    alt={"back-button"}
                     height={17}
                     width={18}
                   />
@@ -401,20 +508,24 @@ export default function Test() {
                   Generating...
                 </button>
               ) : (
-                <button type="submit" className={styles.button2}>
+                <button
+                  type="submit"
+                  onClick={nextPage}
+                  className={styles.button2}
+                >
                   Generate Itinerary
                 </button>
               )}
             </div>
           </div>
         </form>
-        {loading && <p>Loading...</p>}
+        {/* {loading && <p>Loading...</p>}
         {generatedItinerary && (
           <div className={styles.generated_itinerary}>
             <h2>Generated Itinerary</h2>
             <p>{generatedItinerary}</p>
           </div>
-        )}
+        )} */}
       </main>
     </>
   );
