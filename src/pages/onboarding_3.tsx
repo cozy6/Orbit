@@ -1,5 +1,5 @@
 import Image  from 'next/image'
-import styles from '@/styles/results.module.css'
+import styles from '@/styles/onboarding.module.css'
 import Link from 'next/link';
 import { useState } from 'react';
 
