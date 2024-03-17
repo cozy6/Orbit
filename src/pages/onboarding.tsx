@@ -1,12 +1,32 @@
 import Image  from 'next/image'
 import styles from '@/styles/onboarding.module.css'
 import Link from 'next/link';
-import { useState } from 'react';
+import { use, useState } from 'react';
+import airport from "../data/airport.json"
 
 
 export default function Onboarding() {
-
+    
     const [amount, setAmount] = useState(1);
+    const [data,setData] = useState(airport).sort();
+    
+    const datas = airport.sort();
+
+    const [depart, setDepart] = useState("Departing City");
+    const [arrive, setArrive] = useState("Arriving City");
+    // const [airportChanged, setAirportChanged] = useState([])
+
+    // Changing the departing city
+
+    const changeDepart = (event) => {
+        setDepart(event.target.value);
+    }
+
+    // Changing the arriving city
+
+    const changeArrive = (event) => {
+        setArrive(event.target.value);
+    }
 
   return (
     <main className={styles.main}>
@@ -27,34 +47,34 @@ export default function Onboarding() {
                 </div>
                 <p className={styles.question}>Where does your heart long to be?</p>
                 <div className="dropdown">
-                    <label className={styles.select}>Departure City</label>
+                    <label className={styles.select}>Departing City</label>
                     <form action="#" className={styles.form}>
-                        <select name="languages" id="lang">
-                            <option value="select">Where are you from?</option>
-                            <option value="YVR" className={styles.options}>Vancouver International Airport (YVR) </option>
-                            <option value="YUL" className={styles.options}>Montréal International Airport (YUL)</option>
-                            <option value="YYC" className={styles.options}>Calgary International Airport (YYC)</option>
-                            <option value="YHZ" className={styles.options}>Halifax  International Airport (YHZ)</option>
-                            <option value="YEG" className={styles.options}>Edmonton International Airport (YEG)</option>
+                        <search></search>
+                        <select name="languages" id="lang" value={depart} onChange={changeDepart} >
+                           <option value="select">Where are you from?</option>
+                            {
+                                airport.map((city) => (
+                                    <option>{city.name} ({city.iata})</option>
+                                ))
+                            }
                         </select>
                     </form>
-                    <input type="submit" value="Submit" />
                 </div>
+                <br></br>
                 <div className="dropdown">
                     <label className={styles.select}>Arriving City</label>
                     <form action="#" className={styles.form}>
-                        <select name="languages" id="lang">
+                        <select name="languages" id="lang" value={arrive} onChange={changeArrive} >
                             <option value="select">Where do you want to go?</option>
-                            <option value="YVR" className={styles.options}>Vancouver International Airport (YVR) </option>
-                            <option value="YUL" className={styles.options}>Montréal International Airport (YUL)</option>
-                            <option value="YYC" className={styles.options}>Calgary International Airport (YYC)</option>
-                            <option value="YHZ" className={styles.options}>Halifax  International Airport (YHZ)</option>
-                            <option value="YEG" className={styles.options}>Edmonton International Airport (YEG)</option>
-                            <option value="NRT" className={styles.options}>Narita International Airport (NRT)</option>
+                            {
+                                airport.map((city) => (
+                                    <option>{city.name} ({city.iata})</option>
+                                ))
+                            }
                         </select>
                     </form>
-                    <input type="submit" value="Submit" />
                 </div>
+                <br></br>
                 <label className={styles.select}>Number of Travellers</label>
                 <div className={styles.traveller}>
                     <p className={styles.counter}>{amount}</p>

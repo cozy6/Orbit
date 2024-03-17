@@ -148,7 +148,7 @@ export default function Test() {
                       </div>
                       <div className={styles.input_container}>
                         <label className={styles.label_text}>
-                          <div>Departure City:</div>
+                          <div  className={styles.label_headername}>Departure City:</div>
                           {/* <input
                             className={styles.placeholder_text}
                             type="text"
@@ -174,7 +174,7 @@ export default function Test() {
                         </label>
 
                         <label className={styles.label_text}>
-                          <div>Arriving City:</div>
+                          <div className={styles.label_headername}>Arriving City:</div>
                           {/* <input
                             className={styles.placeholder_text}
                             type="text"
@@ -199,8 +199,8 @@ export default function Test() {
                           </select>
                         </label>
 
-                        <label className={styles.label_text}>
-                          <div>Number of Travelers:</div>
+                        <label className={styles.label_text_2}>
+                          <div className={styles.label_headername}>Number of Travelers:</div>
                           <input
                             className={styles.number_text}
                             type="number"
@@ -229,10 +229,20 @@ export default function Test() {
                     </div>
                     <div className={styles.graphic}>
                       <Image
+                        className={styles.location_graphic}
                         src={"/images/graphics/location-graphic.svg"}
                         alt={"location-graphic"}
                         height={854}
                         width={642}
+                      />
+                    </div>
+                    <div className={styles.graphic2}>
+                      <Image
+                        className={styles.location_graphic_tablet}
+                        src={"/images/graphics/location-graphic-tablet.svg"}
+                        alt={"location-graphic"}
+                        height={433}
+                        width={715}
                       />
                     </div>
                   </div>
@@ -286,6 +296,15 @@ export default function Test() {
                         alt={"location-graphic"}
                         height={854}
                         width={642}
+                      />
+                    </div>
+                    <div className={styles.graphic2}>
+                      <Image
+                        className={styles.location_graphic_tablet}
+                        src={"/images/graphics/location-graphic-tablet-2.svg"}
+                        alt={"location-graphic"}
+                        height={433}
+                        width={715}
                       />
                     </div>
                   </div>
@@ -390,6 +409,15 @@ export default function Test() {
                         width={642}
                       />
                     </div>
+                    <div className={styles.graphic2}>
+                      <Image
+                        className={styles.location_graphic_tablet}
+                        src={"/images/graphics/location-graphic-tablet-3.svg"}
+                        alt={"location-graphic"}
+                        height={433}
+                        width={715}
+                      />
+                    </div>
                   </div>
                 </>
               )}
@@ -415,6 +443,10 @@ export default function Test() {
                           What's your ideal plan for a <br></br>memorable
                           voyage?
                         </h1>
+                        <h1 className={styles.steps_title2}>
+                          What's your ideal plan for a memorable
+                          voyage?
+                        </h1>
                       </div>
                       <label className={styles.label_text}>
                         <p>Describe your perfect getaway location:</p>
@@ -435,6 +467,15 @@ export default function Test() {
                         alt={"location-graphic"}
                         height={854}
                         width={642}
+                      />
+                    </div>
+                    <div className={styles.graphic2}>
+                      <Image
+                        className={styles.location_graphic_tablet}
+                        src={"/images/graphics/location-graphic-tablet-4.svg"}
+                        alt={"location-graphic"}
+                        height={433}
+                        width={715}
                       />
                     </div>
                   </div>
