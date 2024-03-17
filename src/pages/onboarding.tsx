@@ -17,16 +17,14 @@ export default function Onboarding() {
     // const [airportChanged, setAirportChanged] = useState([])
 
     // Changing the departing city
-
-    const changeDepart = (event) => {
+    const changeDepart = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setDepart(event.target.value);
-    }
+    };
 
     // Changing the arriving city
-
-    const changeArrive = (event) => {
+    const changeArrive = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setArrive(event.target.value);
-    }
+    };
 
   return (
     <main className={styles.main}>
