@@ -75,6 +75,7 @@ export default function Onboarding() {
                     height={854}
                     width={642}
                     alt="location graphic"
+                    className="location_graphic"
                 />
                 <Link href="/onboarding_2">
                     <button className={styles.button}>Next</button>
