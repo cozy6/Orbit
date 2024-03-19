@@ -66,6 +66,7 @@ export default function Test() {
     const apiEndpoint = "https://api.openai.com/v1/chat/completions";
     const apiKey = process.env.NEXT_OPENAI_API_KEY;
 
+
     const userMessage: UserMessage = {
       role: "assistant",
       content: `I'm planning a trip from ${departureCity} to ${arrivingCity} for ${numTravelers} travelers. The trip duration is ${selectedDate?.toLocaleDateString()} and the budget is ${activitiesBudget}, ${foodBudget}, ${accommodationBudget}, ${transportBudget}. ${getawayDescription}. Can you suggest an itinerary for me?`,
@@ -128,16 +129,6 @@ export default function Test() {
                       <div className={styles.header_container}>
                         <div className={styles.progress_container}>
                           <p className={styles.progress_title}>Step 1: Location</p>
-                          <div className={styles.mobile_progress_title}>
-                            <p className={styles.progress_title}>
-                              Step 1: Location
-                            </p>
-                            {page === 1 && (
-                              <Link href={"/"} className={styles.button1_mobile}>
-                                Back
-                              </Link>
-                            )}
-                          </div>
                           <Image
                             className={styles.progress_bar}
                             src={"/images/progress-1.svg"}
@@ -215,21 +206,8 @@ export default function Test() {
                             <button className={styles.increment_button} type="button">
                               +
                             </button>
-                          </div> */}
+                          </div>
                         </label>
-                        <div className={styles.button1_container}>
-                          {page === 1 && (
-                            <Link href={"/"} className={styles.button1}>
-                              <Image
-                                src={"/images/back.svg"}
-                                alt={"back-button"}
-                                height={17}
-                                width={18}
-                              />
-                              Back
-                            </Link>
-                          )}
-                        </div>
                       </div>
                     </div>
                     <div className={styles.graphic}>
@@ -239,29 +217,7 @@ export default function Test() {
                         alt={"location-graphic"}
                         height={854}
                         width={642}
-                        className={styles.location_graphic}
                       />
-                      {page < 4 ? (
-                        <button
-                          type="button"
-                          onClick={nextPage}
-                          className={styles.button2}
-                        >
-                          Submit
-                        </button>
-                      ) : loading ? (
-                        <button type="button" disabled className={styles.button}>
-                          Generating...
-                        </button>
-                      ) : (
-                        <button
-                          type="submit"
-                          onClick={nextPage}
-                          className={styles.button2}
-                        >
-                          Generate Itinerary
-                        </button>
-                      )}
                     </div>
                     <div className={styles.graphic2}>
                       <Image
@@ -307,23 +263,6 @@ export default function Test() {
                           <p>{selectedDate && `Selected for ${calculateTripDuration()} days`}</p>
                         </div>
                       </div>
-                      <div className={styles.button1_container}>
-                        {page > 1 && (
-                          <button
-                            type="button"
-                            onClick={prevPage}
-                            className={styles.button1}
-                          >
-                            <Image
-                              src={"/images/back.svg"}
-                              alt={"back-button"}
-                              height={17}
-                              width={18}
-                            />
-                            Previous
-                          </button>
-                        )}
-                      </div>
                     </div>
                     <div className={styles.graphic}>
                       <Image
@@ -331,29 +270,7 @@ export default function Test() {
                         alt={"location-graphic"}
                         height={854}
                         width={642}
-                        className={styles.location_graphic}
                       />
-                      {page < 4 ? (
-                        <button
-                          type="button"
-                          onClick={nextPage}
-                          className={styles.button2}
-                        >
-                          Submit
-                        </button>
-                      ) : loading ? (
-                        <button type="button" disabled className={styles.button}>
-                          Generating...
-                        </button>
-                      ) : (
-                        <button
-                          type="submit"
-                          onClick={nextPage}
-                          className={styles.button2}
-                        >
-                          Generate Itinerary
-                        </button>
-                      )}
                     </div>
                     <div className={styles.graphic2}>
                       <Image
@@ -377,20 +294,6 @@ export default function Test() {
                       <div className={styles.header_container}>
                         <div className={styles.progress_container}>
                           <p className={styles.progress_title}>Step 3: Budget</p>
-                          <div className={styles.mobile_progress_title}>
-                            <p className={styles.progress_title}>
-                              Step 3: Budget
-                            </p>
-                            {page > 1 && (
-                              <button
-                                type="button"
-                                onClick={prevPage}
-                                className={styles.button1_mobile}
-                              >
-                                Previous
-                              </button>
-                            )}
-                          </div>
                           <Image
                             className={styles.progress_bar}
                             src={"/images/progress-3.svg"}
@@ -400,9 +303,6 @@ export default function Test() {
                           />
                         </div>
                         <h1 className={styles.steps_title}>What’s your budgeting goal? </h1>
-                        <h1 className={styles.steps_title}>
-                          What's your budgeting goal?{" "}
-                        </h1>
                       </div>
                       <div className={styles.budget_form_container}>
                         <label className={styles.without_budget}>
@@ -462,23 +362,6 @@ export default function Test() {
                           </label>
                         </div>
                       </div>
-                      <div className={styles.button1_container}>
-                        {page > 1 && (
-                          <button
-                            type="button"
-                            onClick={prevPage}
-                            className={styles.button1}
-                          >
-                            <Image
-                              src={"/images/back.svg"}
-                              alt={"back-button"}
-                              height={17}
-                              width={18}
-                            />
-                            Previous
-                          </button>
-                        )}
-                      </div>
                     </div>
                     <div className={styles.graphic}>
                       <Image
@@ -486,29 +369,7 @@ export default function Test() {
                         alt={"location-graphic"}
                         height={854}
                         width={642}
-                        className={styles.location_graphic}
                       />
-                      {page < 4 ? (
-                        <button
-                          type="button"
-                          onClick={nextPage}
-                          className={styles.button2}
-                        >
-                          Submit
-                        </button>
-                      ) : loading ? (
-                        <button type="button" disabled className={styles.button}>
-                          Generating...
-                        </button>
-                      ) : (
-                        <button
-                          type="submit"
-                          onClick={nextPage}
-                          className={styles.button2}
-                        >
-                          Generate Itinerary
-                        </button>
-                      )}
                     </div>
                     <div className={styles.graphic2}>
                       <Image
@@ -531,20 +392,7 @@ export default function Test() {
                     <div className={styles.left_column}>
                       <div className={styles.header_container}>
                         <div className={styles.progress_container}>
-                        <div className={styles.mobile_progress_title}>
-                          <p className={styles.progress_title}>
-                            Step 4: Ideal plan
-                          </p>
-                          {page > 1 && (
-                            <button
-                              type="button"
-                              onClick={prevPage}
-                              className={styles.button1_mobile}
-                            >
-                              Previous
-                            </button>
-                          )}
-                          </div>
+                          <p className={styles.progress_title}>Step 4:</p>
                           <Image
                             className={styles.progress_bar}
                             src={"/images/progress-4.svg"}
@@ -555,11 +403,10 @@ export default function Test() {
                         </div>
                         <h1 className={styles.steps_title}>
                           What's your ideal plan for a <br></br>memorable voyage?
-                          What's your ideal plan for a memorable <br></br>voyage?
                         </h1>
                         <h1 className={styles.steps_title2}>What's your ideal plan for a memorable voyage?</h1>
                       </div>
-                      <label className={styles.label_text_step4}>
+                      <label className={styles.label_text}>
                         <p>Describe your perfect getaway location:</p>
                         <textarea
                           className={styles.getaway_placeholder_text}
@@ -569,23 +416,6 @@ export default function Test() {
                           required
                         />
                       </label>
-                      <div className={styles.button1_container}>
-                        {page > 1 && (
-                          <button
-                            type="button"
-                            onClick={prevPage}
-                            className={styles.button1}
-                          >
-                            <Image
-                              src={"/images/back.svg"}
-                              alt={"back-button"}
-                              height={17}
-                              width={18}
-                            />
-                            Previous
-                          </button>
-                        )}
-                      </div>
                     </div>
                     <div className={styles.graphic}>
                       <Image
@@ -593,29 +423,7 @@ export default function Test() {
                         alt={"location-graphic"}
                         height={854}
                         width={642}
-                        className={styles.location_graphic}
                       />
-                      {page < 4 ? (
-                        <button
-                          type="button"
-                          onClick={nextPage}
-                          className={styles.button2}
-                        >
-                          Submit
-                        </button>
-                      ) : loading ? (
-                        <button type="button" disabled className={styles.button}>
-                          Generating...
-                        </button>
-                      ) : (
-                        <button
-                          type="submit"
-                          onClick={nextPage}
-                          className={styles.button2}
-                        >
-                          Generate Itinerary
-                        </button>
-                      )}
                     </div>
                     <div className={styles.graphic2}>
                       <Image
@@ -653,7 +461,7 @@ export default function Test() {
             </div>
 
             <div className={styles.button_container}>
-              {/* {page === 1 && (
+              {page === 1 && (
                 <Link href={"/"} className={styles.button1}>
                   <Image src={"/images/back.svg"} alt={"back-button"} height={17} width={18} />
                   Back
@@ -662,31 +470,11 @@ export default function Test() {
               {page > 1 && page < 5 && (
                 <button type="button" onClick={prevPage} className={styles.button1}>
                   <Image src={"/images/back.svg"} alt={"back-button"} height={17} width={18} />
-              )} */}
-              {/* {page > 1 && (
-                <button
-                  type="button"
-                  onClick={prevPage}
-                  className={styles.button1}
-                >
-                  <Image
-                    src={"/images/back.svg"}
-                    alt={"back-button"}
-                    height={17}
-                    width={18}
-                  />
                   Previous
                 </button>
               )}
               {page < 4 ? (
                 <button type="button" onClick={nextPage} className={styles.button2}>
-              )} */}
-              {/* {page < 4 ? (
-                <button
-                  type="button"
-                  onClick={nextPage}
-                  className={styles.button2}
-                >
                   Submit
                 </button>
               ) : loading ? (
@@ -697,7 +485,7 @@ export default function Test() {
                 <button type="submit" className={styles.button2}>
                   Generate Itinerary
                 </button>
-              )} */}
+              )}
             </div>
           </div>
         </form>
