@@ -83,6 +83,25 @@
   background-color: none;
 }
 
+.label_text_2{
+  color: var(--dark-blue);
+  font-family: "Apfel Grotezk";
+  font-size: var(--desktop-body-20pt);
+  font-style: normal;
+  font-weight: 400;
+  padding: 25px 85px 17px 16px;
+  background-color: none;
+}
+
+.label_headername{
+  color: var(--dark-blue);
+  font-family: "Gilroy";
+  font-size: var(--desktop-body-20pt);
+  font-style: normal;
+  font-weight: 400;
+  background-color: none;
+}
+
 .budget_input {
   color: var(--dark-blue);
   font-family: "Apfel Grotezk";
@@ -275,6 +294,15 @@
   font-family: "Gilroy";
 }
 
+.steps_title2{
+  color: var(--dark-blue);
+  font-size: var(--desktop-heading2);
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 800;
+  display: none;
+}
+
 .form_title {
   color: var(--dark-blue);
   font-size: var(--desktop-heading3);
@@ -289,6 +317,7 @@
   font-family: "Apfel Grotesk";
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 390px) {
   .main {
     background: none;
@@ -405,5 +434,101 @@
   .label_text textarea {
     width: 270px;
     height: 100px;
+=======
+.graphic2{
+  display: none;
+}
+
+/* responsiveness */
+
+/* tablet 820px */
+
+@media screen and (max-width: 820px){
+
+  .wrapper{
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+
+  .graphic{
+    display: none;
+  }
+
+  .graphic2{
+    display: block;
+  }
+
+  .location_graphic{
+    height: 433px;
+    width: 100vw;
+  }
+
+  .progress_container{
+    gap: 1em;
+  }
+
+  .progress_title{
+    font-size: var(--tablet-heading3);
+  }
+
+  .steps_title{
+    display: none;
+  }
+  
+  .steps_title2{
+    font-size: var(--tablet-heading1);
+    display: block;
+  }
+
+  .label_headername{
+    font-size: var(--tablet-heading3);
+    font-weight: bold;
+  }
+
+  .placeholder_text{
+    font-size: var(--tablet-body-17pt);
+  }
+
+  .left_column{
+    gap: 2em;
+    margin-top: 2em;
+    padding-left: 4em;
+  }
+  
+  .page_content{
+    margin-left: 2rem;
+    margin-top: 3rem;
+    height: 80rem;
+  }
+
+  .label_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .label_text_2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .button_container{
+    padding-top: 20em;
+    padding-right: 0em;
+    justify-content: center;
+  }
+
+  .button1{
+    display: none;
+  }
+
+  .input_container_date{
+    flex-direction: row;
+  }
+
+  .budget_input{
+    font-size: var(--tablet-body-19pt);
+>>>>>>> 2a7aacbb5933dc2ba0abc9db55de8c7b2f428c76
   }
 }

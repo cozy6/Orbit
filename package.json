@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
-    "axios": "^1.6.7",
+    "axios": "^1.6.8",
     "cypress": "^13.6.4",
     "next": "14.0.4",
     "react": "^18",
     "react-calendar": "^4.8.0",
-    "react-datepicker": "^6.2.0",
+    "react-datepicker": "^6.3.0",
     "react-dom": "^18"
   },
   "devDependencies": {

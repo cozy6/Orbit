@@ -68,8 +68,7 @@ export default function Test() {
 
     const userMessage: UserMessage = {
       role: "assistant",
-      // content: `I'm planning a trip from ${departureCity} to ${arrivingCity} for ${numTravelers} travelers. The trip duration is ${selectedDate?.toLocaleDateString()} and the budget is ${tripBudget}. ${getawayDescription}. Can you suggest an itinerary for me?`,
-      content: `I'm planning a trip from ${departureCity} to ${arrivingCity} for ${numTravelers} travelers. The trip duration is ${selectedDate?.toLocaleDateString()} and the budget is ${activitiesBudget}, ${foodBudget}, ${accommodationBudget}, ${transportBudget} . ${getawayDescription}. Can you suggest an itinerary for me?`,
+      content: `I'm planning a trip from ${departureCity} to ${arrivingCity} for ${numTravelers} travelers. The trip duration is ${selectedDate?.toLocaleDateString()} and the budget is ${activitiesBudget}, ${foodBudget}, ${accommodationBudget}, ${transportBudget}. ${getawayDescription}. Can you suggest an itinerary for me?`,
     };
 
     try {
@@ -91,6 +90,7 @@ export default function Test() {
       const generatedText = response.data.choices[0].message.content;
       setGeneratedItinerary(generatedText);
       setError("");
+      nextPage();
     } catch (error) {
       console.error("API Error:", error);
       setError("Failed to generate itinerary. Please try again.");
@@ -108,15 +108,11 @@ export default function Test() {
   };
 
   const filteredDepartures = searchDeparture
-    ? destinations.filter((city) =>
-        city.toLowerCase().includes(searchDeparture.toLowerCase())
-      )
+    ? destinations.filter((city) => city.toLowerCase().includes(searchDeparture.toLowerCase()))
     : destinations;
 
   const filteredArrivals = searchArriving
-    ? destinations.filter((city) =>
-        city.toLowerCase().includes(searchArriving.toLowerCase())
-      )
+    ? destinations.filter((city) => city.toLowerCase().includes(searchArriving.toLowerCase()))
     : destinations;
 
   return (
@@ -131,6 +127,7 @@ export default function Test() {
                     <div className={styles.left_column}>
                       <div className={styles.header_container}>
                         <div className={styles.progress_container}>
+                          <p className={styles.progress_title}>Step 1: Location</p>
                           <div className={styles.mobile_progress_title}>
                             <p className={styles.progress_title}>
                               Step 1: Location
@@ -149,13 +146,11 @@ export default function Test() {
                             height={4}
                           />
                         </div>
-                        <h1 className={styles.steps_title}>
-                          Where does your heart long to be?
-                        </h1>
+                        <h1 className={styles.steps_title}>Where does your heart long to be?</h1>
                       </div>
                       <div className={styles.input_container}>
                         <label className={styles.label_text}>
-                          <div>Departure City:</div>
+                          <div className={styles.label_headername}>Departure City:</div>
                           {/* <input
                             className={styles.placeholder_text}
                             type="text"
@@ -169,8 +164,7 @@ export default function Test() {
                           <select
                             className={styles.placeholder_text}
                             value={departureCity}
-                            onChange={(e) => setDepartureCity(e.target.value)}
-                          >
+                            onChange={(e) => setDepartureCity(e.target.value)}>
                             <option value="">Select Departure City</option>
                             {filteredDepartures.map((city, index) => (
                               <option key={index} value={city}>
@@ -181,7 +175,7 @@ export default function Test() {
                         </label>
 
                         <label className={styles.label_text}>
-                          <div>Arriving City:</div>
+                          <div className={styles.label_headername}>Arriving City:</div>
                           {/* <input
                             className={styles.placeholder_text}
                             type="text"
@@ -195,8 +189,7 @@ export default function Test() {
                           <select
                             className={styles.placeholder_text}
                             value={arrivingCity}
-                            onChange={(e) => setArrivingCity(e.target.value)}
-                          >
+                            onChange={(e) => setArrivingCity(e.target.value)}>
                             <option value="">Select Arriving City</option>
                             {filteredArrivals.map((city, index) => (
                               <option key={index} value={city}>
@@ -206,28 +199,20 @@ export default function Test() {
                           </select>
                         </label>
 
-                        <label className={styles.label_text}>
-                          <div>Number of Travelers:</div>
+                        <label className={styles.label_text_2}>
+                          <div className={styles.label_headername}>Number of Travelers:</div>
                           <input
                             className={styles.number_text}
                             type="number"
                             value={numTravelers}
-                            onChange={(e) =>
-                              setNumTravelers(parseInt(e.target.value))
-                            }
+                            onChange={(e) => setNumTravelers(parseInt(e.target.value))}
                             required
                           />
-                          {/* <div className={styles.increment_decrement}>
-                            <button
-                              className={styles.decrement_button}
-                              type="button"
-                            >
+                          <div className={styles.increment_decrement}>
+                            <button className={styles.decrement_button} type="button">
                               -
                             </button>
-                            <button
-                              className={styles.increment_button}
-                              type="button"
-                            >
+                            <button className={styles.increment_button} type="button">
                               +
                             </button>
                           </div> */}
@@ -249,6 +234,7 @@ export default function Test() {
                     </div>
                     <div className={styles.graphic}>
                       <Image
+                        className={styles.location_graphic}
                         src={"/images/graphics/location-graphic.svg"}
                         alt={"location-graphic"}
                         height={854}
@@ -277,6 +263,15 @@ export default function Test() {
                         </button>
                       )}
                     </div>
+                    <div className={styles.graphic2}>
+                      <Image
+                        className={styles.location_graphic_tablet}
+                        src={"/images/graphics/location-graphic-tablet.svg"}
+                        alt={"location-graphic"}
+                        height={433}
+                        width={715}
+                      />
+                    </div>
                   </div>
                 </>
               )}
@@ -289,20 +284,7 @@ export default function Test() {
                     <div className={styles.left_column}>
                       <div className={styles.header_container}>
                         <div className={styles.progress_container}>
-                          <div className={styles.mobile_progress_title}>
-                            <p className={styles.progress_title}>
-                              Step 2: Travel & Time
-                            </p>
-                            {page > 1 && (
-                              <button
-                                type="button"
-                                onClick={prevPage}
-                                className={styles.button1_mobile}
-                              >
-                                Previous
-                              </button>
-                            )}
-                          </div>
+                          <p className={styles.progress_title}>Step 2: Travel & Time</p>
                           <Image
                             className={styles.progress_bar}
                             src={"/images/progress-2.svg"}
@@ -311,14 +293,10 @@ export default function Test() {
                             height={4}
                           />
                         </div>
-                        <h1 className={styles.steps_title}>
-                          How are you planning to travel?
-                        </h1>
+                        <h1 className={styles.steps_title}>How are you planning to travel?</h1>
                       </div>
                       <div className={styles.input_container_date}>
-                        <label className={styles.label_text}>
-                          Select Dates:
-                        </label>
+                        <label className={styles.label_text}>Select Dates:</label>
                         <div className="date_picker_container">
                           <DatePicker
                             selected={selectedDate}
@@ -326,10 +304,7 @@ export default function Test() {
                             dateFormat="dd/MM/yyyy"
                             inline
                           />
-                          <p>
-                            {selectedDate &&
-                              `Selected for ${calculateTripDuration()} days`}
-                          </p>
+                          <p>{selectedDate && `Selected for ${calculateTripDuration()} days`}</p>
                         </div>
                       </div>
                       <div className={styles.button1_container}>
@@ -380,6 +355,15 @@ export default function Test() {
                         </button>
                       )}
                     </div>
+                    <div className={styles.graphic2}>
+                      <Image
+                        className={styles.location_graphic_tablet}
+                        src={"/images/graphics/location-graphic-tablet-2.svg"}
+                        alt={"location-graphic"}
+                        height={433}
+                        width={715}
+                      />
+                    </div>
                   </div>
                 </>
               )}
@@ -392,6 +376,7 @@ export default function Test() {
                     <div className={styles.left_column}>
                       <div className={styles.header_container}>
                         <div className={styles.progress_container}>
+                          <p className={styles.progress_title}>Step 3: Budget</p>
                           <div className={styles.mobile_progress_title}>
                             <p className={styles.progress_title}>
                               Step 3: Budget
@@ -414,6 +399,7 @@ export default function Test() {
                             height={4}
                           />
                         </div>
+                        <h1 className={styles.steps_title}>What’s your budgeting goal? </h1>
                         <h1 className={styles.steps_title}>
                           What's your budgeting goal?{" "}
                         </h1>
@@ -423,9 +409,7 @@ export default function Test() {
                           <p>I don't have any budget goals</p>
                           <input type="checkbox" id="checkBudget" />
                         </label>
-                        <h2 className={styles.form_title}>
-                          My budgeting preferences:
-                        </h2>
+                        <h2 className={styles.form_title}>My budgeting preferences:</h2>
                         <div className={styles.with_budget} id="budgetForm">
                           {/* <label className={styles.label_text}>
                         Trip Budget:
@@ -442,9 +426,7 @@ export default function Test() {
                               placeholder=".00"
                               type="text"
                               value={transportBudget}
-                              onChange={(e) =>
-                                setTransportBudget(e.target.value)
-                              }
+                              onChange={(e) => setTransportBudget(e.target.value)}
                               required
                             />
                           </label>
@@ -464,9 +446,7 @@ export default function Test() {
                               placeholder=".00"
                               type="text"
                               value={accommodationBudget}
-                              onChange={(e) =>
-                                setAccommodationBudget(e.target.value)
-                              }
+                              onChange={(e) => setAccommodationBudget(e.target.value)}
                               required
                             />
                           </label>
@@ -476,9 +456,7 @@ export default function Test() {
                               placeholder=".00"
                               type="text"
                               value={activitiesBudget}
-                              onChange={(e) =>
-                                setActivitiesBudget(e.target.value)
-                              }
+                              onChange={(e) => setActivitiesBudget(e.target.value)}
                               required
                             />
                           </label>
@@ -532,6 +510,15 @@ export default function Test() {
                         </button>
                       )}
                     </div>
+                    <div className={styles.graphic2}>
+                      <Image
+                        className={styles.location_graphic_tablet}
+                        src={"/images/graphics/location-graphic-tablet-3.svg"}
+                        alt={"location-graphic"}
+                        height={433}
+                        width={715}
+                      />
+                    </div>
                   </div>
                 </>
               )}
@@ -567,8 +554,10 @@ export default function Test() {
                           />
                         </div>
                         <h1 className={styles.steps_title}>
+                          What's your ideal plan for a <br></br>memorable voyage?
                           What's your ideal plan for a memorable <br></br>voyage?
                         </h1>
+                        <h1 className={styles.steps_title2}>What's your ideal plan for a memorable voyage?</h1>
                       </div>
                       <label className={styles.label_text_step4}>
                         <p>Describe your perfect getaway location:</p>
@@ -576,9 +565,7 @@ export default function Test() {
                           className={styles.getaway_placeholder_text}
                           placeholder="E.g “Backpack adventures”, “Culture & traditions”, “Family vacation”..."
                           value={getawayDescription}
-                          onChange={(e) =>
-                            setGetawayDescription(e.target.value)
-                          }
+                          onChange={(e) => setGetawayDescription(e.target.value)}
                           required
                         />
                       </label>
@@ -630,6 +617,15 @@ export default function Test() {
                         </button>
                       )}
                     </div>
+                    <div className={styles.graphic2}>
+                      <Image
+                        className={styles.location_graphic_tablet}
+                        src={"/images/graphics/location-graphic-tablet-4.svg"}
+                        alt={"location-graphic"}
+                        height={433}
+                        width={715}
+                      />
+                    </div>
                   </div>
                 </>
               )}
@@ -640,12 +636,7 @@ export default function Test() {
                 <>
                   <div className={styles.wrapper}>
                     <div className={styles.header}>
-                      <Image
-                        src={"/images/banner.png"}
-                        alt={"banner-graphic"}
-                        height={220}
-                        width={1320}
-                      />
+                      <Image src={"/images/banner.png"} alt={"banner-graphic"} height={220} width={1320} />
                       <div className={styles.left_column}>
                         {loading && <p>Loading...</p>}
                         {generatedItinerary && (
@@ -664,14 +655,13 @@ export default function Test() {
             <div className={styles.button_container}>
               {/* {page === 1 && (
                 <Link href={"/"} className={styles.button1}>
-                  <Image
-                    src={"/images/back.svg"}
-                    alt={"back-button"}
-                    height={17}
-                    width={18}
-                  />
+                  <Image src={"/images/back.svg"} alt={"back-button"} height={17} width={18} />
                   Back
                 </Link>
+              )}
+              {page > 1 && page < 5 && (
+                <button type="button" onClick={prevPage} className={styles.button1}>
+                  <Image src={"/images/back.svg"} alt={"back-button"} height={17} width={18} />
               )} */}
               {/* {page > 1 && (
                 <button
@@ -687,6 +677,9 @@ export default function Test() {
                   />
                   Previous
                 </button>
+              )}
+              {page < 4 ? (
+                <button type="button" onClick={nextPage} className={styles.button2}>
               )} */}
               {/* {page < 4 ? (
                 <button
@@ -701,11 +694,7 @@ export default function Test() {
                   Generating...
                 </button>
               ) : (
-                <button
-                  type="submit"
-                  onClick={nextPage}
-                  className={styles.button2}
-                >
+                <button type="submit" className={styles.button2}>
                   Generate Itinerary
                 </button>
               )} */}
