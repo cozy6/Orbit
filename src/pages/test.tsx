@@ -64,7 +64,7 @@ export default function Test() {
 
   const generateItinerary = async () => {
     const apiEndpoint = "https://api.openai.com/v1/chat/completions";
-    const apiKey = process.env.NEXT_OPENAI_API_KEY;
+    const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
 
 
     const userMessage: UserMessage = {
