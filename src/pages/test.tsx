@@ -142,16 +142,6 @@ export default function Test() {
                       <div className={styles.input_container}>
                         <label className={styles.label_text}>
                           <div className={styles.label_headername}>Departure City:</div>
-                          {/* <input
-                            className={styles.placeholder_text}
-                            type="text"
-                            value={searchDeparture}
-                            onChange={(e) => {
-                              setSearchDeparture(e.target.value);
-                              setDepartureCity(e.target.value);
-                            }}
-                            placeholder="Search or select departure city"
-                          /> */}
                           <select
                             className={styles.placeholder_text}
                             value={departureCity}
@@ -167,16 +157,6 @@ export default function Test() {
 
                         <label className={styles.label_text}>
                           <div className={styles.label_headername}>Arriving City:</div>
-                          {/* <input
-                            className={styles.placeholder_text}
-                            type="text"
-                            value={searchArriving}
-                            onChange={(e) => {
-                              setSearchArriving(e.target.value);
-                              setArrivingCity(e.target.value);
-                            }}
-                            placeholder="Search or select arriving city"
-                          /> */}
                           <select
                             className={styles.placeholder_text}
                             value={arrivingCity}
@@ -311,15 +291,6 @@ export default function Test() {
                         </label>
                         <h2 className={styles.form_title}>My budgeting preferences:</h2>
                         <div className={styles.with_budget} id="budgetForm">
-                          {/* <label className={styles.label_text}>
-                        Trip Budget:
-                        <input
-                          type="text"
-                          value={tripBudget}
-                          onChange={(e) => setTripBudget(e.target.value)}
-                          required
-                        />
-                      </label> */}
                           <label className={styles.budget_input}>
                             <div>Transportation Budget:</div>
                             <input
@@ -489,13 +460,6 @@ export default function Test() {
             </div>
           </div>
         </form>
-        {/* {loading && <p>Loading...</p>}
-        {generatedItinerary && (
-          <div className={styles.generated_itinerary}>
-            <h2>Generated Itinerary</h2>
-            <p>{generatedItinerary}</p>
-          </div>
-        )} */}
       </main>
     </>
   );
