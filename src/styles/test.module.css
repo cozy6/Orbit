@@ -1,15 +1,12 @@
 .main {
   background: url("/images/background-image.jpg"), 0% / cover no-repeat;
   background-size: cover;
-  display: inline-block;
-  width: 100vw;
-  height: 100vh;
-  padding: 0px;
-  color: var(--black);
+  display: flex;
+  justify-content: center;
 }
 
 .page_content {
-  display: flex;
+  /* display: flex;
   justify-content: flex-start;
   flex-direction: column;
   background-color: var(--white);
@@ -18,13 +15,15 @@
   width: 90%;
   height: 55rem;
   margin-left: 6.5rem;
-  margin-top: 5rem;
+  margin-top: 5rem; */
 }
 
 .wrapper {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  background-color: var(--white);
+  border-radius: 30px;
+  padding: 10px;
+  margin-top: 5rem;
 }
 
 /** Input Styles **/
@@ -32,19 +31,13 @@
 .left_column {
   display: flex;
   flex-direction: column;
-  margin-top: 8em;
-  padding-left: 6em;
-  gap: 3em;
+  margin: 8em 5em 0 6em;
+  gap: 2em;
 }
 
 .input_container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  gap: 3em;
-  align-content: center;
-  gap: 1em;
-  height: 100%;
 }
 
 .date_picker_container {
@@ -65,9 +58,15 @@
   color: var(--dark-blue);
   font-family: "Apfel Grotezk";
   font-size: var(--desktop-body-20pt);
-  font-style: normal;
-  font-weight: 400;
-  padding: 25px 85px 17px 16px;
+  padding: 25px 0 17px 16px;
+  background-color: none;
+}
+
+.label_text_step4 {
+  color: var(--dark-blue);
+  font-family: "Apfel Grotezk";
+  font-size: var(--desktop-body-20pt);
+  padding: 25px 0 17px 16px;
   background-color: none;
 }
 
@@ -94,11 +93,14 @@
   color: var(--dark-blue);
   font-family: "Apfel Grotezk";
   font-size: var(--desktop-body-20pt);
-  font-style: normal;
-  font-weight: 400;
   padding: 25px 0px 17px 16px;
   border-bottom: 1px solid var(--dark-blue);
-  background-color: none;
+}
+
+.budget_input input {
+  border: none;
+  outline: none;
+  background: none;
 }
 
 .placeholder_text {
@@ -116,12 +118,12 @@
 }
 
 .getaway_placeholder_text {
-  color: rgba(30, 30, 30, 1);
   font-family: "Apfel Grotezk";
   font-size: var(--desktop-body-16pt);
-  font-style: normal;
   font-weight: 100;
-  background-color: none;
+  border: none;
+  outline: none;
+  background: none;
   width: 32em;
   padding: 10px 5px 0px 16px;
   border-bottom: 1px solid var(--dark-blue);
@@ -156,7 +158,7 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  height: 100%;
+  /* height: 100%; */
   gap: 2em;
   width: 20em;
 }
@@ -188,6 +190,13 @@
   gap: 1em;
 }
 
+.graphic {
+  position: 'relative';
+  display: 'flex';
+  flex-direction: column;
+  align-items: center;
+}
+
 /** Button Styles **/
 
 .button_container {
@@ -210,7 +219,7 @@
 }
 
 .button1 {
-  width: 103px;
+  width: 140px;
   height: 22px;
   color: var(--blue);
   border: none;
@@ -240,6 +249,10 @@
   background-color: var(--black);
 }
 
+.button1_mobile {
+  display: none;
+}
+
 /** Header Styles **/
 
 .header_container {
@@ -257,7 +270,7 @@
 .steps_title {
   color: var(--dark-blue);
   font-size: var(--desktop-heading2);
-  font-family: Gilroy;
+  font-family: "Gilroy";
   font-style: normal;
   font-weight: 800;
 }
@@ -274,7 +287,7 @@
 .form_title {
   color: var(--dark-blue);
   font-size: var(--desktop-heading3);
-  font-family: Gilroy;
+  font-family: "Gilroy";
   font-style: normal;
   font-weight: 800;
 }
@@ -381,5 +394,151 @@
 
   .budget_input{
     font-size: var(--tablet-body-19pt);
+  }
+}
+
+/* Mobile 390px */
+
+@media screen and (max-width: 390px) {
+  .main {
+    background: none;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: none;
+    border-radius: 0px;
+    padding: 0px;
+    margin-top: 0rem;
+  }
+
+  .location_graphic {
+    display: none;
+  }
+
+  .placeholder_text {
+    width: 15em;
+  }
+
+  .button2 {
+    width: 300px;
+    height: 72px;
+    font-size: 17px;
+    position: relative;
+    margin: 4em 1em 1.8em 0;
+  }
+
+  .button_container {
+    display: flex;
+    flex-direction: row;
+    padding-right: 0em;
+    padding-top: 0em;
+  }
+
+  .left_column {
+    gap: 2em;
+    padding-left: 0em;
+    margin: 2em 0em 0em 0em;
+  }
+
+  .steps_title {
+    font-size: var(--mobile-heading2);
+    font-family: "Gilroy";
+  }
+
+  .progress_title {
+    font-size: var(--mobile-heading3);
+  }
+
+  .label_text {
+    font-size: var(--tablet-heading3);
+    padding: 20px 0 10px 15px;
+  }
+
+  .mobile_progress_title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button1_mobile {
+    display: block;
+    color: var(--dark-blue);
+    cursor: pointer;
+  }
+
+  .button1_container {
+    display: none;
+  }
+
+  .input_container {
+    margin-bottom: 8.9em;
+  }
+
+  .input_container_date {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10em;
+  }
+
+  .with_budget {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .form_title {
+    font-size: var(--mobile-heading3);
+  }
+
+  .budget_input {
+    font-size: var(--mobile-body-14pt);
+    padding: 10px 0px 17px 16px;
+    border-bottom: 1px solid var(--dark-blue);
+  }
+
+  .without_budget {
+    font-size: var(--mobile-body-14pt);
+  }
+
+  .budget_form_container {
+    margin-bottom: 9em;
+    gap: 1.5em;
+  }
+
+  .label_text_step4 {
+    font-size: var(--mobile-body-16pt);
+    padding: 25px 0 0px 0px;
+    background-color: none;
+    margin-bottom: 10em;
+  }
+
+  .label_text textarea {
+    width: 270px;
+    height: 100px;
+  }
+
+  .location_graphic_tablet {
+    display: none;
+  }
+
+  .left_column {
+    width: 300px;
+  }
+
+  .label_text_2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page_content {
+    height: 49.7em;
+  }
+
+  .getaway_placeholder_text {
+    width: 280px;
   }
 }
