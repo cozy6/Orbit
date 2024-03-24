@@ -66,7 +66,6 @@ export default function Test() {
     const apiEndpoint = "https://api.openai.com/v1/chat/completions";
     const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
 
-
     const userMessage: UserMessage = {
       role: "assistant",
       content: `I'm planning a trip from ${departureCity} to ${arrivingCity} for ${numTravelers} travelers. The trip duration is ${selectedDate?.toLocaleDateString()} and the budget is ${activitiesBudget}, ${foodBudget}, ${accommodationBudget}, ${transportBudget}. ${getawayDescription}. Can you suggest an itinerary for me?`,
@@ -410,54 +409,61 @@ export default function Test() {
               )}
             </div>
 
-            <div className={styles.page_5}>
-              {page === 5 && (
-                <>
-                  <div className={styles.wrapper}>
-                    <div className={styles.header}>
-                      <Image src={"/images/banner.png"} alt={"banner-graphic"} height={220} width={1320} />
-                      <div className={styles.left_column}>
-                        {loading && <p>Loading...</p>}
-                        {generatedItinerary && (
-                          <div className={styles.generated_itinerary}>
-                            <h2>Generated Itinerary</h2>
-                            <p>{generatedItinerary}</p>
-                          </div>
-                        )}
-                      </div>
+            {page === 5 && (
+              <>
+                <div className={styles.wrapper}>
+                  <div className={styles.header}>
+                    <Image src={"/images/banner.png"} alt={"banner-graphic"} height={220} width={1320} />
+                    <div className={styles.left_column}>
+                      {loading && <p>Loading...</p>}
+                      {generatedItinerary && (
+                        <div className={styles.generated_itinerary}>
+                          <h2>Generated Itinerary</h2>
+                          <p>{generatedItinerary}</p>
+                        </div>
+                      )}
                     </div>
                   </div>
-                </>
-              )}
-            </div>
+                </div>
+                <div className={styles.button_container}>
+                  <Link href="/">
+                    <button type="button" className={styles.button2}>
+                      Back to home
+                    </button>
+                  </Link>
+                </div>
+              </>
+            )}
 
-            <div className={styles.button_container}>
-              {page === 1 && (
-                <Link href={"/"} className={styles.button1}>
-                  <Image src={"/images/back.svg"} alt={"back-button"} height={17} width={18} />
-                  Back
-                </Link>
-              )}
-              {page > 1 && page < 5 && (
-                <button type="button" onClick={prevPage} className={styles.button1}>
-                  <Image src={"/images/back.svg"} alt={"back-button"} height={17} width={18} />
-                  Previous
-                </button>
-              )}
-              {page < 4 ? (
-                <button type="button" onClick={nextPage} className={styles.button2}>
-                  Submit
-                </button>
-              ) : loading ? (
-                <button type="button" disabled className={styles.button}>
-                  Generating...
-                </button>
-              ) : (
-                <button type="submit" className={styles.button2}>
-                  Generate Itinerary
-                </button>
-              )}
-            </div>
+            {page !== 5 && (
+              <div className={styles.button_container}>
+                {page === 1 && (
+                  <Link href={"/"} className={styles.button1}>
+                    <Image src={"/images/back.svg"} alt={"back-button"} height={17} width={18} />
+                    Back
+                  </Link>
+                )}
+                {page > 1 && page < 5 && (
+                  <button type="button" onClick={prevPage} className={styles.button1}>
+                    <Image src={"/images/back.svg"} alt={"back-button"} height={17} width={18} />
+                    Previous
+                  </button>
+                )}
+                {page < 4 ? (
+                  <button type="button" onClick={nextPage} className={styles.button2}>
+                    Submit
+                  </button>
+                ) : loading ? (
+                  <button type="button" disabled className={styles.button}>
+                    Generating...
+                  </button>
+                ) : (
+                  <button type="submit" className={styles.button2}>
+                    Generate Itinerary
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         </form>
       </main>
