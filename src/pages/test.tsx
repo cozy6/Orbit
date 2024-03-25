@@ -152,6 +152,7 @@ export default function Test() {
                           <div className={styles.label_headername}>Departure City:</div>
                           <select
                             className={styles.placeholder_text}
+                            typeof="select"
                             value={departureCity}
                             onChange={(e) => setDepartureCity(e.target.value)}>
                             <option value="">Select Departure City</option>
