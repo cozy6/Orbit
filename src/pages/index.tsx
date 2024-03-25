@@ -12,7 +12,11 @@ export default function Home() {
         <div className={styles.content}>
           <p className={styles.header}>Orbit into Adventure</p>
           <p className={styles.subHeader}>Discover personalized travel plans effortlessly with us.</p>
-          <Link href="/test" className={styles.button}>Let's Go</Link>
+          <button type='button' className={styles.button}>
+            <Link href="/test">
+              Let's Go
+            </Link>
+            </button>
         </div>
       </div>
     </main>
