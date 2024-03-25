@@ -29,7 +29,7 @@
 - [.submit()] Submit a form.
 - [.wait()] Wait a number of milliseconds, or wait for an aliased resource to resolve.
 - [.invoke()] Invoke a function on the previously yielded subject.
-- [.type()] Type into a DOM element.
+- [.viewport()] Control the size and orientation of the screen for your application.
 - [.check()] Check checkbox or radio elements.
 - [.should()] Assert on the state of your application. Assertions are automatically retried until they pass or time out.
 - [.filter()] Filter elements with a selector.
