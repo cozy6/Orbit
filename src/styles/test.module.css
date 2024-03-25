@@ -3,6 +3,7 @@
   background-size: cover;
   display: flex;
   justify-content: center;
+  height: 100vh;
 }
 
 .page_content {
@@ -18,12 +19,52 @@
   margin-top: 5rem; */
 }
 
+.loadingAnimation {
+  background: url("/images/graphics/loading-animation.gif"),
+    0% / cover no-repeat;
+  background-size: cover;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 2500px;
+  width: 2500px; 
+  color: var(--black);
+  font-size: var(--desktop-body);
+  font-family: var(--heading-font);
+  border-radius: 15px;
+  background: rgba(217, 217, 217, 0.25);
+  box-shadow: 0px 3px 8.6px -1px rgba(20, 20, 20, 0.12),
+    0px 0px 1px 0px rgba(20, 20, 20, 0.08);
+  backdrop-filter: blur(12px);
+}
+
 .wrapper {
   display: flex;
   background-color: var(--white);
   border-radius: 30px;
   padding: 10px;
   margin-top: 5rem;
+}
+
+.wrapper_5 {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 30px;
+  padding: 10px;
+  margin-top: 5rem;
+  height: 85vh;
 }
 
 /** Input Styles **/
@@ -210,14 +251,14 @@
 }
 
 .generated_itinerary {
-  margin-top: -20rem;
+  margin-top: 1rem;
   max-width: 80%;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 12rem;
+  color: var(--black);
 }
-
 .button1 {
   width: 140px;
   height: 22px;
@@ -254,6 +295,13 @@
 }
 
 /** Header Styles **/
+.banner {
+  background: url("/images/banner.png"), 0% / cover no-repeat;
+  background-size: cover;
+  display: inline-block;
+  width: 1320px;
+  height: 221px;
+}
 
 .header_container {
   display: flex;
@@ -540,5 +588,26 @@
 
   .getaway_placeholder_text {
     width: 280px;
+  }
+
+  .generated_itinerary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    margin-top: 2em;
+  }
+
+  .generated_itinerary .itinerary_sections_grid {
+    max-width: 100%;
+  }
+
+  .generated_itinerary .card {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  .banner {
+    display: none;
   }
 }

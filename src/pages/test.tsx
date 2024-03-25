@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -6,6 +6,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "../styles/test.module.css";
 import { UserMessage } from "../typings.d";
+import { fetchWeather } from "../components/weather";
+import { WeatherStats } from "../typings.d";
 
 const destinations = [
   "New York",
@@ -41,6 +43,16 @@ export default function Test() {
   const [searchDeparture, setSearchDeparture] = useState("");
   const [searchArriving, setSearchArriving] = useState("");
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [weather, setWeather] = useState<WeatherStats | null>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetchWeather("Vancouver");
+      console.log("Weather data:", data);
+      setWeather(data);
+    }
+    fetchData();
+  }, []);
 
   const nextPage = () => {
     setPage(page + 1);
@@ -128,9 +140,7 @@ export default function Test() {
                       <div className={styles.header_container}>
                         <div className={styles.progress_container}>
                           <div className={styles.mobile_progress_title}>
-                            <p className={styles.progress_title}>
-                              Step 1: Location
-                            </p>
+                            <p className={styles.progress_title}>Step 1: Location</p>
                             {page === 1 && (
                               <Link href={"/"} className={styles.button1_mobile}>
                                 Back to home
@@ -187,14 +197,6 @@ export default function Test() {
                             onChange={(e) => setNumTravelers(parseInt(e.target.value))}
                             required
                           />
-                          {/* <div className={styles.increment_decrement}>
-                            <button className={styles.decrement_button} type="button">
-                              -
-                            </button>
-                            <button className={styles.increment_button} type="button">
-                              +
-                            </button>
-                          </div> */}
                         </label>
                       </div>
                     </div>
@@ -220,7 +222,6 @@ export default function Test() {
                 </>
               )}
             </div>
-
             <div className={styles.page_2}>
               {page === 2 && (
                 <>
@@ -229,15 +230,9 @@ export default function Test() {
                       <div className={styles.header_container}>
                         <div className={styles.progress_container}>
                           <div className={styles.mobile_progress_title}>
-                            <p className={styles.progress_title}>
-                              Step 2: Travel & Time
-                            </p>
+                            <p className={styles.progress_title}>Step 2: Travel & Time</p>
                             {page > 1 && (
-                              <button
-                                type="button"
-                                onClick={prevPage}
-                                className={styles.button1_mobile}
-                              >
+                              <button type="button" onClick={prevPage} className={styles.button1_mobile}>
                                 Previous
                               </button>
                             )}
@@ -286,7 +281,6 @@ export default function Test() {
                 </>
               )}
             </div>
-
             <div className={styles.page_3}>
               {page === 3 && (
                 <>
@@ -295,15 +289,9 @@ export default function Test() {
                       <div className={styles.header_container}>
                         <div className={styles.progress_container}>
                           <div className={styles.mobile_progress_title}>
-                            <p className={styles.progress_title}>
-                              Step 3: Budget
-                            </p>
+                            <p className={styles.progress_title}>Step 3: Budget</p>
                             {page > 1 && (
-                              <button
-                                type="button"
-                                onClick={prevPage}
-                                className={styles.button1_mobile}
-                              >
+                              <button type="button" onClick={prevPage} className={styles.button1_mobile}>
                                 Previous
                               </button>
                             )}
@@ -389,7 +377,6 @@ export default function Test() {
                 </>
               )}
             </div>
-
             <div className={styles.page_4}>
               {page === 4 && (
                 <>
@@ -398,15 +385,9 @@ export default function Test() {
                       <div className={styles.header_container}>
                         <div className={styles.progress_container}>
                           <div className={styles.mobile_progress_title}>
-                            <p className={styles.progress_title}>
-                              Step 4: Ideal plan
-                            </p>
+                            <p className={styles.progress_title}>Step 4: Ideal plan</p>
                             {page > 1 && (
-                              <button
-                                type="button"
-                                onClick={prevPage}
-                                className={styles.button1_mobile}
-                              >
+                              <button type="button" onClick={prevPage} className={styles.button1_mobile}>
                                 Bsck
                               </button>
                             )}
@@ -456,24 +437,46 @@ export default function Test() {
                 </>
               )}
             </div>
+            {loading && (
+              <div className={styles.loading}>
+                <div className={styles.loadingAnimation}></div>
+                Please wait while we plan the best trip for you!
+              </div>
+            )}
 
             {page === 5 && (
               <>
-                <div className={styles.wrapper}>
-                  <div className={styles.header}>
-                    <Image src={"/images/banner.png"} alt={"banner-graphic"} height={220} width={1320} />
-                    <div className={styles.left_column}>
-                      {loading && <p>Loading...</p>}
-                      {generatedItinerary && (
-                        <div className={styles.generated_itinerary}>
-                          <h2>Generated Itinerary</h2>
-                          <p>{generatedItinerary}</p>
-                        </div>
-                      )}
-                    </div>
+                <div className={styles.wrapper_5}>
+                  <div className={styles.banner}>
+                    {weather && (
+                      <div style={{ display: "flex", flexDirection: "column", marginLeft: "2em", marginTop: "1em" }}>
+                        <h2
+                          style={{
+                            fontSize: "var(--desktop-bold-header)",
+                            fontFamily: "var(--body-font)",
+                            color: "var(--blue)",
+                          }}>
+                          {weather.name}
+                        </h2>
+                        <p style={{ color: "var(--blue)" }}>Temperature: {weather.main.temp}°C</p>
+                        <p style={{ color: "var(--blue)" }}>Weather: {weather.weather[0].description}</p>
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles.generated_itinerary}>
+                    {generatedItinerary && (
+                      <div className={styles.itinerary_sections_grid}>
+                        {generatedItinerary.split("\n").map((section, index) => (
+                          <div className={styles.card} key={index}>
+                            <h3 className={styles.section_title}>{section.split(":")[0]}</h3>
+                            <p>{section.split(":").slice(1).join(":")}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
-                <div className={styles.button_container}>
+                <div className={styles.button_container_5}>
                   <Link href="/">
                     <button type="button" className={styles.button2}>
                       Back to home
@@ -487,7 +490,7 @@ export default function Test() {
               {page === 1 && (
                 <Link href={"/"} className={styles.button1}>
                   <Image src={"/images/back.svg"} alt={"back-button"} height={17} width={18} />
-                    Back to home
+                  Back to home
                 </Link>
               )}
               {page > 1 && page < 5 && (
@@ -496,15 +499,17 @@ export default function Test() {
                   Previous
                 </button>
               )}
-              {page < 4 ? (
+              {page < 4 && (
                 <button type="button" onClick={nextPage} className={styles.button2}>
                   Submit
                 </button>
-              ) : loading ? (
+              )}
+              {loading && page === 4 && (
                 <button type="button" disabled className={styles.button}>
                   Generating...
                 </button>
-              ) : (
+              )}
+              {!loading && page === 4 && (
                 <button type="submit" className={styles.button2}>
                   Generate Itinerary
                 </button>
