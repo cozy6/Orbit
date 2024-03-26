@@ -46,11 +46,11 @@ const BarChart: React.FC = () => {
 
     useEffect(() => {
         setChartData({
-            labels:["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"],
+            labels:["France", "Mexico", "United States", "Italy", "Spain", "Hungary", "China"],
             datasets: [
                 {
-                    label: "Sales $",
-                    data: [10234, 54034, 6435, 9482, 3984, 2049, 8294],
+                    label: "Million",
+                    data: [117.1, 51.1, 45, 38.4, 36.4, 31.6, 30.4],
                     borderColor: 'rgb(53, 162, 235)',
                     backgroundColor: 'rgba(53, 162, 235, 0.4)'
                 }
@@ -64,7 +64,7 @@ const BarChart: React.FC = () => {
                 }, 
                 title:{
                     display: true,
-                    text: "Daily Revenue"
+                    text: "Most visited Countries 2020"
                 }
             },
             maintainAspectRatio: false,
