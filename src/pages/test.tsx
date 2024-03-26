@@ -258,7 +258,7 @@ export default function Test() {
                             dateFormat="dd/MM/yyyy"
                             inline
                           />
-                          <p>{selectedDate && `Selected for ${calculateTripDuration()} days`}</p>
+                          <p style={{ color:"var(--black)"}}>{selectedDate && `Selected for ${calculateTripDuration()} days`}</p>
                         </div>
                       </div>
                     </div>
