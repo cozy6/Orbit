@@ -8,6 +8,7 @@ import styles from "../styles/test.module.css";
 import { UserMessage } from "../typings.d";
 import { fetchWeather } from "../components/weather";
 import { WeatherStats } from "../typings.d";
+import BarChart from "@/components/BarChart";
 
 const destinations = [
   "New York",
@@ -445,48 +446,6 @@ export default function Test() {
               </div>
             )}
 
-            {/* {page === 5 && (
-              <>
-                <div className={styles.wrapper_5}>
-                  <div className={styles.banner}>
-                    {weather && (
-                      <div style={{ display: "flex", flexDirection: "column", marginLeft: "2em", marginTop: "1em" }}>
-                        <h2
-                          style={{
-                            fontSize: "var(--desktop-bold-header)",
-                            fontFamily: "var(--body-font)",
-                            color: "var(--blue)",
-                          }}>
-                          {weather.name}
-                        </h2>
-                        <p style={{ color: "var(--blue)" }}>Temperature: {weather.main.temp}°C</p>
-                        <p style={{ color: "var(--blue)" }}>Weather: {weather.weather[0].description}</p>
-                      </div>
-                    )}
-                  </div>
-                  <div className={styles.generated_itinerary}>
-                    {generatedItinerary && (
-                      <div className={styles.itinerary_sections_grid}>
-                        {generatedItinerary.split("\n").map((section, index) => (
-                          <div className={styles.card} key={index}>
-                            <h3 className={styles.section_title}>{section.split(":")[0]}</h3>
-                            <p>{section.split(":").slice(1).join(":")}</p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div className={styles.button_container_5}>
-                  <Link href="/">
-                    <button type="button" className={styles.button2}>
-                      Back to home
-                    </button>
-                  </Link>
-                </div>
-              </>
-            )} */}
-
             {page === 5 && (
               <>
                 <div className={styles.wrapper_5}>
@@ -519,6 +478,11 @@ export default function Test() {
                         ))}
                       </div>
                     )}
+                    <div className={styles.chart_container}>
+                      <div>
+                        <BarChart />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className={styles.button_container_5}>
