@@ -250,6 +250,13 @@
   justify-content: space-between;
 }
 
+.button_container_5 {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -46em;
+  margin-right: 1rem;
+}
+
 .generated_itinerary {
   margin-top: 1rem;
   max-width: 80%;
@@ -299,7 +306,7 @@
   background: url("/images/banner.png"), 0% / cover no-repeat;
   background-size: cover;
   display: inline-block;
-  width: 1320px;
+  width: 1450px;
   height: 221px;
 }
 
